@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌴 제주 가족여행 5/21-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocean: #1a6b8a;
+  --ocean-deep: #0f4c6e;
+  --ocean-light: #4fa8c7;
+  --ocean-pale: #e8f4f8;
+  --sand: #f0e6c8;
+  --sand-dark: #c9a96e;
+  --coral: #e8603a;
+  --coral-light: #fef0eb;
+  --green: #3a7d5c;
+  --green-light: #e4f2ea;
+  --yellow: #f0c040;
+  --purple: #7b5ea7;
+  --gray: #5a6472;
+  --light: #fafafa;
+  --white: #ffffff;
+  --text: #1a2332;
+  --text-mid: #4a5568;
+  --border: #e2e8f0;
+
+  /* ── design tokens ── */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(15,28,46,0.04), 0 2px 8px rgba(15,28,46,0.05);
+  --shadow-md: 0 2px 6px rgba(15,28,46,0.04), 0 8px 24px rgba(15,28,46,0.08);
+  --shadow-lg: 0 6px 14px rgba(15,28,46,0.06), 0 18px 40px rgba(15,28,46,0.12);
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 64px; /* sticky nav offset */
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #f5f0e8;
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+::selection { background: var(--ocean); color: #fff; }
+
+img, svg { display: block; max-width: 100%; }
+
+/* ───── HERO ───── */
+.hero {
+  min-height: 88vh;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.18) 0%, transparent 55%),
+    radial-gradient(80% 60% at 18% 30%, rgba(79,168,199,0.55) 0%, transparent 60%),
+    radial-gradient(70% 60% at 82% 70%, rgba(45,138,110,0.45) 0%, transparent 65%),
+    linear-gradient(180deg, #0c3f5a 0%, #1a6b8a 45%, #4fa8c7 75%, #f0e6c8 100%);
+  background-attachment: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 120px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* 떠다니는 점 장식 */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 18% 22%, rgba(255,255,255,0.35), transparent 50%),
+    radial-gradient(1.5px 1.5px at 78% 18%, rgba(255,255,255,0.4), transparent 50%),
+    radial-gradient(2px 2px at 62% 38%, rgba(255,255,255,0.3), transparent 50%),
+    radial-gradient(1.5px 1.5px at 32% 64%, rgba(255,255,255,0.25), transparent 50%),
+    radial-gradient(2px 2px at 88% 56%, rgba(255,255,255,0.3), transparent 50%);
+  z-index: -1;
+  animation: floatUp 12s ease-in-out infinite alternate;
+}
+
+/* 하단으로 자연스러운 전환 */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #0f4c6e);
+  pointer-events: none;
+}
+
+.hero-badge {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.32);
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-size: 11px;
+  color: white;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeDown 0.8s var(--ease) both;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+.hero h1 {
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(44px, 9.5vw, 88px);
+  color: white;
+  line-height: 1.08;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.35);
+  animation: fadeDown 0.8s var(--ease) 0.1s both;
+}
+
+.hero h1 span {
+  color: var(--yellow);
+  background: linear-gradient(135deg, #ffe07a 0%, #f0c040 50%, #e8a020 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 14px rgba(240,192,64,0.4));
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 36px;
+  letter-spacing: 0.02em;
+  animation: fadeDown 0.8s var(--ease) 0.2s both;
+}
+
+.hero-divider {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  margin: 0 auto 32px;
+  animation: fadeDown 0.8s var(--ease) 0.15s both;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0) }
+  100% { transform: translateY(-14px) }
+}
+
+/* 스크롤 큐 (마우스 휠 모양) */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 36px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  z-index: 1;
+  animation: fadeDown 1.2s var(--ease) 0.6s both;
+}
+
+.hero-scroll-cue span {
+  width: 3px;
+  height: 7px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 2px;
+  animation: scrollCue 1.6s var(--ease) infinite;
+}
+
+@keyframes scrollCue {
+  0%   { opacity: 0; transform: translateY(-2px); }
+  40%  { opacity: 1; }
+  80%  { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+@media (max-width: 600px) {
+  .hero-scroll-cue { bottom: 24px; width: 20px; height: 32px; }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeDown 0.8s ease 0.3s both;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 16px;
+  padding: 16px 24px;
+  color: white;
+  text-align: center;
+  min-width: 100px;
+}
+
+.stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--yellow);
+}
+
+.stat-label {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* ───── FLIGHT STRIP ───── */
+.flight-strip {
+  background: var(--ocean);
+  color: white;
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 12px 20px;
+}
+
+.flight-arrow {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.flight-info { line-height: 1.4; }
+.flight-route { font-size: 16px; font-weight: 700; }
+.flight-detail { font-size: 11px; opacity: 0.8; }
+
+/* ───── NAV TABS ───── */
+.nav-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,240,232,0.85);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid rgba(15,28,46,0.08);
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 12px;
+  box-shadow: 0 1px 0 rgba(15,28,46,0.04), 0 8px 24px -16px rgba(15,28,46,0.18);
+}
+
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px 8px 0 0;
+}
+
+.nav-tab:hover {
+  color: var(--ocean);
+  background: rgba(26,107,138,0.06);
+}
+
+.nav-tab.active {
+  color: var(--ocean);
+  border-bottom-color: var(--ocean);
+}
+
+/* ───── SECTIONS ───── */
+/* ▼ 모든 콘텐츠 컬럼 폭 전역 강제 통일 — 콘텐츠 영역 920px 고정 */
+.section,
+#flightstay > div,
+#address > div,
+.map-title,
+.map-container,
+.jeju-map-wrap {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+#flightstay,
+#address,
+.map-section {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.section {
+  padding-top: 56px;
+  padding-bottom: 64px;
+}
+
+.section-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(24px, 4.5vw, 32px);
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 22px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--ocean), var(--ocean-light));
+  flex-shrink: 0;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* ───── DAY CARDS ───── */
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  margin-top: 36px;
+}
+
+.day-badge {
+  background: var(--ocean);
+  color: white;
+  border-radius: 12px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.day-info h3 { font-size: 18px; font-weight: 700; }
+.day-info p { font-size: 12px; color: var(--text-mid); margin-top: 2px; }
+
+.timeline {
+  position: relative;
+  padding-left: 36px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 6px; bottom: 6px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--ocean) 0%, var(--ocean-light) 60%, rgba(79,168,199,0) 100%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 14px;
+  animation: slideIn 0.5s var(--ease) both;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 18px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ocean-light);
+  border: 3px solid var(--ocean);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(26,107,138,0.08);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 6px rgba(26,107,138,0.12);
+}
+
+.timeline-dot.confirmed {
+  background: var(--ocean);
+}
+
+.place-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.place-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.place-card.confirmed { border-left: 4px solid var(--ocean); }
+.place-card.option { border-left: 4px solid var(--yellow); }
+.place-card.food { border-left: 4px solid var(--coral); }
+.place-card.rain { border-left: 4px solid #93c5fd; }
+.place-card.new-add { border-left: 4px solid var(--green); }
+
+.card-inner {
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-emoji { font-size: 24px; flex-shrink: 0; }
+
+.card-body { flex: 1; min-width: 0; }
+
+.card-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.card-type { font-size: 11px; color: var(--text-mid); margin: 2px 0; }
+
+.card-note {
+  font-size: 12px;
+  color: var(--text-mid);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.tag-time-am { background: #fef9c3; color: #854d0e; }
+.tag-time-pm { background: #dbeafe; color: #1e40af; }
+.tag-time-eve { background: #f3e8ff; color: #6b21a8; }
+.tag-reserve { background: #fee2e2; color: #991b1b; }
+.tag-free { background: var(--green-light); color: #166534; }
+.tag-cost { background: #f3f4f6; color: #374151; }
+.tag-new { background: #d1fae5; color: #065f46; }
+.tag-season { background: #fce7f3; color: #831843; }
+.tag-kids { background: #ede9fe; color: #5b21b6; }
+.tag-rain { background: #e0f2fe; color: #075985; }
+
+.star { color: #f59e0b; font-size: 12px; letter-spacing: 1px; }
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ───── FOOD SECTION ───── */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.food-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--coral);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.food-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.food-category {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 6px;
+}
+
+.food-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.food-place {
+  font-size: 12px;
+  color: var(--text-mid);
+  margin-bottom: 8px;
+}
+
+.food-detail {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+.food-price {
+  display: inline-block;
+  background: var(--coral-light);
+  color: var(--coral);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+/* ───── TIPS ───── */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.tip-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.tip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.tip-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.tip-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.tip-body { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
+
+/* ───── RAIN POOL ───── */
+.rain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.rain-card {
+  background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid #bae6fd;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.rain-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14,165,233,0.15);
+}
+
+.rain-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.rain-detail { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
+.rain-star { color: #f59e0b; font-size: 11px; margin-bottom: 4px; }
+
+/* ───── MAP SECTION ───── */
+.map-section {
+  background: var(--ocean);
+  padding: 40px 20px;
+  color: white;
+}
+
+.map-title {
+  max-width: 920px;
+  margin: 0 auto 24px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 24px;
+}
+
+.map-container {
+  max-width: 920px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 420px;
+  position: relative;
+}
+
+.map-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ───── JEJU MAP ───── */
+.jeju-map-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 20px;
+}
+
+.map-legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-mid);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ───── BUDGET TABLE ───── */
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.budget-table th {
+  background: var(--ocean);
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.budget-table th:first-child { border-radius: 8px 0 0 0; }
+.budget-table th:last-child { border-radius: 0 8px 0 0; }
+
+.budget-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.budget-table tr:last-child td { border-bottom: none; }
+.budget-table tr:nth-child(even) td { background: #f8fafc; }
+
+.budget-total td {
+  background: var(--ocean-pale) !important;
+  font-weight: 700;
+  color: var(--ocean);
+}
+
+/* ───── CHECKLIST ───── */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 13px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+  line-height: 1.55;
+}
+
+.check-item:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.check-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid var(--ocean);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ───── DIVIDER ───── */
+.wavy-divider {
+  height: 40px;
+  background: var(--ocean);
+  clip-path: polygon(0 40%, 5% 20%, 10% 40%, 15% 20%, 20% 40%, 25% 20%, 30% 40%, 35% 20%, 40% 40%, 45% 20%, 50% 40%, 55% 20%, 60% 40%, 65% 20%, 70% 40%, 75% 20%, 80% 40%, 85% 20%, 90% 40%, 95% 20%, 100% 40%, 100% 100%, 0 100%);
+}
+
+/* ───── SECTION BG ───── */
+.bg-sand { background: var(--sand); }
+.bg-white { background: white; }
+.bg-ocean-pale { background: var(--ocean-pale); }
+.bg-green-light { background: #f0f7f4; }
+
+/* ───── ANIMATIONS ───── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ───── FOOTER ───── */
+.footer {
+  background: linear-gradient(180deg, #0f1f2e 0%, #050b14 100%);
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  padding: 48px 20px 56px;
+  font-size: 13px;
+  line-height: 1.85;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+  margin: 0 auto 18px;
+}
+
+.footer strong {
+  color: var(--yellow);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ───── 스크롤 탑 버튼 ───── */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ocean);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 6px 18px rgba(15,28,46,0.25);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease), background .2s var(--ease);
+  pointer-events: none;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top:hover { background: var(--ocean-deep); }
+
+@media (max-width: 600px) {
+  .scroll-top { bottom: 18px; right: 18px; width: 40px; height: 40px; }
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 768px) {
+  .section { padding: 44px 18px 52px; }
+  .section-title { font-size: 24px; }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 80vh; padding: 64px 20px 100px; }
+  .hero h1 { font-size: clamp(38px, 11vw, 56px); }
+  .hero-sub { font-size: 14px; }
+
+  .food-grid, .rain-grid, .tips-grid, .checklist-grid, .hot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-tab { padding: 12px 12px; font-size: 12px; }
+
+  .timeline { padding-left: 28px; }
+  .timeline-dot { left: -24px; width: 10px; height: 10px; border-width: 2px; }
+
+  .day-header { gap: 10px; margin-top: 28px; }
+  .day-info h3 { font-size: 16px; }
+  .day-badge { padding: 6px 14px; font-size: 12px; }
+
+  /* ── 항공/렌터카/숙소 카드 inline flex 모바일 보정 ── */
+  #flightstay > div > div {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  /* 항공 카드 정렬 안정화 */
+  #flightstay [style*="flex:1"][style*="min-width:240px"] {
+    min-width: 0 !important;
+    width: 100%;
+    padding: 18px 18px !important;
+  }
+  #flightstay [style*="font-size:28px;font-weight:900"] { font-size: 22px !important; }
+
+  /* 렌터카 픽업/반납 타임라인 — 작은 화면에서 줄바꿈 */
+  #flightstay [style*="border-top:1px solid rgba(255,255,255,0.15)"][style*="display:flex"] {
+    flex-wrap: nowrap;
+  }
+  #flightstay [style*="font-size:20px;font-weight:900"] { font-size: 18px !important; }
+
+  /* 숙소 어메니티 그리드를 2→1 컬럼으로 (240px 미만일 때) */
+
+  /* 예산표 가로 스크롤 허용 */
+  #budget .budget-table { font-size: 12px; min-width: 560px; }
+
+  /* 주소록 카드 그리드 1열 */
+  #address [style*="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 40px; }
+  .hero-badge { font-size: 10px; padding: 6px 16px; letter-spacing: 2px; }
+
+  /* 숙소 어메니티 그리드 1열로 */
+  #flightstay [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 예산표는 항상 가로 스크롤 가능 */
+.budget-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.budget-scroll::-webkit-scrollbar { height: 6px; }
+.budget-scroll::-webkit-scrollbar-thumb { background: rgba(26,107,138,0.3); border-radius: 3px; }
+
+/* ───── NOTICE BOX ───── */
+.notice {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 12px;
+  color: #78350f;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.notice-icon { font-size: 16px; flex-shrink: 0; }
+
+/* ───── PILL GROUP ───── */
+.pill-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.pill {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-mid);
+}
+
+.pill.active {
+  background: var(--ocean);
+  border-color: var(--ocean);
+  color: white;
+}
+
+/* ───── HOTPLACE CARD ───── */
+.hot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.hot-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.hot-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.hot-badge {
+  position: absolute;
+  top: -8px;
+  right: 14px;
+  background: var(--coral);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+}
+
+.hot-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.hot-where { font-size: 11px; color: var(--ocean); font-weight: 600; margin-bottom: 6px; }
+.hot-desc { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
+.hot-meta { 
+  display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero">
+  <div class="hero-badge">✈️ Family Trip Guide</div>
+  <h1>제주도<br><span>가족여행</span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">꿀달(40개월) · 또용(24개월) · 부부 · 2026년 5월 21일 – 24일</p>
+  <div class="hero-scroll-cue" aria-hidden="true">
+    <span></span>
+  </div>
+
+
+<!-- ═══════════════════════ FLIGHTS + STAY ═══════════════════════ -->
+<div id="flightstay" style="background:linear-gradient(135deg,#0f4c6e 0%,#1a6b8a 50%,#2d8a6e 100%);padding:32px 20px 36px">
+  <div style="max-width:920px;margin:0 auto">
+
+    <!-- 항공 섹션 타이틀 -->
+    <div style="text-align:center;margin-bottom:20px">
+      <span style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.6);text-transform:uppercase">FLIGHT SCHEDULE</span>
+    </div>
+
+    <!-- 항공 카드 2개 -->
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:0 0 32px">
+
+      <!-- 가는 편 -->
+      <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:20px 24px;flex:1 1 320px;min-width:240px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="font-size:18px">🛫</span>
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.7);text-transform:uppercase">가는 편</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="text-align:center">
+            <div style="font-size:28px;font-weight:900;color:white;line-height:1">GMP</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px">서울/김포</div>
+            <div style="font-size:18px;font-weight:700;color:#f0c040;margin-top:4px">14:00</div>
+          </div>
+          <div style="flex:1;text-align:center;padding:0 12px">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:4px">1h 15m</div>
+            <div style="border-top:1.5px dashed rgba(255,255,255,0.3);position:relative">
+              <span style="position:absolute;right:-4px;top:-6px;font-size:10px">✈</span>
+            </div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:28px;font-weight:900;color:white;line-height:1">CJU</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px">제주</div>
+            <div style="font-size:18px;font-weight:700;color:#f0c040;margin-top:4px">15:15</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:10px;display:flex;justify-content:space-between">
+          <span style="font-size:11px;color:rgba(255,255,255,0.6)">5/21(목) · KE1133</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.6)">일반석</span>
+        </div>
+      </div>
+
+      <!-- 오는 편 -->
+      <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:20px 24px;flex:1 1 320px;min-width:240px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="font-size:18px">🛬</span>
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.7);text-transform:uppercase">오는 편</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="text-align:center">
+            <div style="font-size:28px;font-weight:900;color:white;line-height:1">CJU</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px">제주</div>
+            <div style="font-size:18px;font-weight:700;color:#f0c040;margin-top:4px">17:35</div>
+          </div>
+          <div style="flex:1;text-align:center;padding:0 12px">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:4px">1h 15m</div>
+            <div style="border-top:1.5px dashed rgba(255,255,255,0.3);position:relative">
+              <span style="position:absolute;right:-4px;top:-6px;font-size:10px">✈</span>
+            </div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:28px;font-weight:900;color:white;line-height:1">GMP</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px">서울/김포</div>
+            <div style="font-size:18px;font-weight:700;color:#f0c040;margin-top:4px">18:50</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:10px;display:flex;justify-content:space-between">
+          <span style="font-size:11px;color:rgba(255,255,255,0.6)">5/24(일) · 7C128</span>
+          <span style="font-size:11px;background:rgba(240,192,64,0.2);color:#f0c040;padding:2px 8px;border-radius:6px;font-weight:600">XBQPQM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 렌터카 섹션 타이틀 -->
+    <div style="text-align:center;margin:0 0 16px">
+      <span style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.6);text-transform:uppercase">🚗 RENTAL CAR</span>
+    </div>
+
+    <!-- 렌터카 카드 -->
+    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;overflow:hidden;margin:0 0 32px">
+      <div style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
+        <div style="background:rgba(255,255,255,0.15);border-radius:14px;padding:12px;font-size:28px;flex-shrink:0">🚙</div>
+        <div style="flex:1">
+          <div style="font-size:19px;font-weight:900;color:white;margin-bottom:2px">볼보 XC90 2세대 F/L</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:10px">에스렌트카 본사 · 7인승 SUV · 완전자차 포함</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-size:11px;padding:3px 9px;border-radius:7px">🛡️ 완전자차플러스</span>
+            <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-size:11px;padding:3px 9px;border-radius:7px">💺 7인승</span>
+            <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-size:11px;padding:3px 9px;border-radius:7px">❄️ 에어컨</span>
+            <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-size:11px;padding:3px 9px;border-radius:7px">🗺️ 네비</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 픽업·반납 타임라인 -->
+      <div style="border-top:1px solid rgba(255,255,255,0.15);padding:16px 24px;display:flex;align-items:center;gap:0">
+        <div style="flex:1;text-align:center">
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:3px">픽업</div>
+          <div style="font-size:15px;font-weight:700;color:white">5/21(목)</div>
+          <div style="font-size:20px;font-weight:900;color:#f0c040;line-height:1.2">16:00</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px">에스렌트카 본사</div>
+        </div>
+        <div style="flex:1;text-align:center;padding:0 8px">
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:4px">2박 23시간</div>
+          <div style="border-top:1.5px dashed rgba(255,255,255,0.3);position:relative">
+            <span style="position:absolute;right:-4px;top:-7px;font-size:12px;color:rgba(255,255,255,0.7)">🚗</span>
+          </div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:4px">213,422원</div>
+        </div>
+        <div style="flex:1;text-align:center">
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:3px">반납</div>
+          <div style="font-size:15px;font-weight:700;color:white">5/24(일)</div>
+          <div style="font-size:20px;font-weight:900;color:#f87171;line-height:1.2">15:00</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px">에스렌트카 본사</div>
+        </div>
+      </div>
+
+      <!-- 카시트 정보 -->
+      <div style="border-top:1px solid rgba(255,255,255,0.15);padding:14px 24px">
+        <div style="font-size:10px;letter-spacing:1px;color:rgba(255,255,255,0.5);margin-bottom:10px;text-transform:uppercase">카시트 예약 완료 ✅</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <div style="flex:1;min-width:180px;background:rgba(255,255,255,0.08);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px">
+            <span style="font-size:20px">🪑</span>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:white">브라이텍스 롬머키드픽스2</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.6)">꿀달 (40개월) · 좌측 뒷좌석</div>
+              <div style="font-size:11px;color:#f0c040;margin-top:2px">28,000원</div>
+            </div>
+          </div>
+          <div style="flex:1;min-width:180px;background:rgba(255,255,255,0.08);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px">
+            <span style="font-size:20px">🪑</span>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:white">다이치 퍼스트세븐</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.6)">또용 (24개월) · 우측 뒷좌석</div>
+              <div style="font-size:11px;color:#f0c040;margin-top:2px">20,000원</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⚠️ 반납 시간 경고 배너 -->
+      <div style="margin:0 14px 14px;background:linear-gradient(135deg,rgba(248,113,113,0.25),rgba(239,68,68,0.15));border:1px solid rgba(248,113,113,0.4);border-radius:12px;padding:12px 16px;display:flex;align-items:flex-start;gap:10px">
+        <span style="font-size:18px;flex-shrink:0">⏰</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#fca5a5;margin-bottom:3px">반납 15:00 — Day4 동선 역산 필수!</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.75);line-height:1.6">
+            14:00 이전 에스렌트카 출발 → 15:00 반납 → 셔틀·택시 20분 → 공항 15:20 도착 → 17:35 탑승
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 숙소 섹션 타이틀 -->
+    <div style="text-align:center;margin-bottom:16px">
+      <span style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.6);text-transform:uppercase">OUR STAY · 3 NIGHTS</span>
+    </div>
+
+    <!-- 숙소 카드 -->
+    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;overflow:hidden;margin:0">
+
+      <!-- 숙소 상단 -->
+      <div style="background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(255,255,255,0.05));padding:24px 24px 20px;display:flex;align-items:flex-start;gap:16px">
+        <div style="background:rgba(255,255,255,0.2);border-radius:16px;padding:14px;font-size:28px;flex-shrink:0">🏡</div>
+        <div>
+          <div style="font-size:22px;font-weight:900;color:white;margin-bottom:4px">달가든하우스</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7)">📍 제주특별자치도 서귀포시 서호호근로46번길 20</div>
+          <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap">
+            <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;font-size:11px;padding:3px 10px;border-radius:8px">🌿 빌라형 독채</span>
+            <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;font-size:11px;padding:3px 10px;border-radius:8px">서귀포 서호동</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 구분선 -->
+      <div style="border-top:1px solid rgba(255,255,255,0.15)"></div>
+
+      <!-- 숙소 어메니티 -->
+      <div style="padding:20px 24px">
+        <div style="font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.5);margin-bottom:12px;text-transform:uppercase">숙소 어메니티</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:20px">🏊</span>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:white">수영장 (풀장)</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.6)">아이들 물놀이 가능!</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:20px">🌅</span>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:white">오션뷰</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.6)">서귀포 바다 전망</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:20px">🏡</span>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:white">독채 빌라</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.6)">가족 전용 공간</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:20px">🌿</span>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:white">야외 정원</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.6)">꼬맹이 뛰어놀기 OK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 구분선 -->
+      <div style="border-top:1px solid rgba(255,255,255,0.15)"></div>
+
+      <!-- 체크인·아웃 + 풀장 팁 -->
+      <div style="padding:16px 24px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <div style="flex:1;min-width:120px">
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:2px">체크인</div>
+          <div style="font-size:16px;font-weight:700;color:white">5/21(목)</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.6)">15:00 이후</div>
+        </div>
+        <div style="width:1px;height:40px;background:rgba(255,255,255,0.2)"></div>
+        <div style="flex:1;min-width:120px;text-align:center">
+          <div style="font-size:22px">3</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.6)">박 4일</div>
+        </div>
+        <div style="width:1px;height:40px;background:rgba(255,255,255,0.2)"></div>
+        <div style="flex:1;min-width:120px;text-align:right">
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:2px">체크아웃</div>
+          <div style="font-size:16px;font-weight:700;color:white">5/24(일)</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.6)">11:00 이전</div>
+        </div>
+      </div>
+
+      <!-- 풀장 하이라이트 배너 -->
+      <div style="margin:0 16px 16px;background:linear-gradient(135deg,#0ea5e9,#06b6d4);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:28px">🏊‍♀️</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:white">풀장에서 여유롭게 🌊</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.85)">외출 전·후 꿀달·또용 물놀이 타임 확보! 저녁엔 조용히 숙소 풀에서 쉬는 것도 좋아요.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav class="nav-tabs">
+  <a href="#flightstay" class="nav-tab">✈️ 항공·숙소</a>
+  <a href="#schedule" class="nav-tab active">📅 일정</a>
+  <a href="#map" class="nav-tab">🗺️ 동선지도</a>
+  <a href="#food" class="nav-tab">🍜 먹거리</a>
+  <a href="#hotplace" class="nav-tab">🔥 핫플</a>
+  <a href="#rain" class="nav-tab">🌧️ 우천대비</a>
+  <a href="#budget" class="nav-tab">💰 예산</a>
+  <a href="#address" class="nav-tab">📍 주소록</a>
+  <a href="#checklist" class="nav-tab">✅ 체크리스트</a>
+</nav>
+
+<!-- ═══════════════════════ SCHEDULE ═══════════════════════ -->
+<div id="schedule" class="bg-sand">
+<div class="section">
+  <h2 class="section-title">📅 전체 일정</h2>
+  <p class="section-sub">확정 일정 + 날씨·컨디션 보고 픽하는 옵션 구분. 하루 2~3곳 기준.</p>
+
+  <!-- 루틴 배너 -->
+  <div style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1px solid #bae6fd;border-radius:14px;padding:14px 16px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start">
+    <span style="font-size:20px;flex-shrink:0">🧒</span>
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#0369a1;margin-bottom:4px">꿀달·또용 루틴 반영 완료</div>
+      <div style="font-size:12px;color:#0c4a6e;line-height:1.8">
+        🌅 07:00 기상 &nbsp;→&nbsp; ⭐ 09:00~11:30 <b>오전 황금타임</b> (체험 몰빵) &nbsp;→&nbsp; 🍜 12:00 점심<br>
+        😴 12:30~14:00 <b>낮잠</b> (이동 중 차에서) &nbsp;→&nbsp; 🌤️ 14:00~18:30 오후 활동 &nbsp;→&nbsp; 🌙 21:00 취침
+      </div>
+    </div>
+  </div>
+
+  <div class="pill-group">
+    <span class="pill active">✅ 확정</span>
+    <span class="pill">🎲 옵션</span>
+    <span class="pill">🆕 신규추가</span>
+    <span class="pill">⚠️ 예약필수</span>
+  </div>
+
+  <!-- 또용 생일 배너 -->
+  <div style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:1.5px solid #f9a8d4;border-radius:16px;padding:16px 18px;margin-bottom:20px;display:flex;align-items:center;gap:14px">
+    <span style="font-size:32px;flex-shrink:0">🎂</span>
+    <div>
+      <div style="font-size:15px;font-weight:900;color:#be185d;margin-bottom:3px">또용이 생일 여행! 🎉</div>
+      <div style="font-size:12px;color:#9d174d;line-height:1.7">제제케이크 픽업 → 협재에서 케이크 사진 → 신창풍차·수월봉 포토스팟<br>또용 23개월 무료 혜택도 최대한 활용해요 🐣</div>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-header">
+    <div class="day-badge" style="background:var(--ocean)">Day 1</div>
+    <div class="day-info">
+      <h3>5/21 목 — 도착 & 서부</h3>
+      <p>공항→케이크픽업→협재→신창풍차→인스밀→서귀포 체크인</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🚙</div>
+          <div class="card-body">
+            <div class="card-name">렌터카 픽업 — 볼보 XC90</div>
+            <div class="card-type">에스렌트카 본사 · 공항 근처</div>
+            <div class="card-note">카시트 장착 확인 후 바로 출발!</div>
+            <div class="card-tags"><span class="tag tag-time-pm">16:00</span><span class="tag" style="background:#d1fae5;color:#065f46">✅ 카시트 예약완료</span></div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">16:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 제제케이크 -->
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed" style="border-left-color:#be185d">
+        <div class="card-inner">
+          <div class="card-emoji">🎂</div>
+          <div class="card-body">
+            <div class="card-name" style="color:#be185d">제제케이크 픽업 🎉 또용이 생일케이크!</div>
+            <div class="card-type">제주시 원노형로 35-3 1층 · 공항 10분</div>
+            <div class="card-note">공항에서 바로 픽업. 케이크는 뒷좌석 바닥에 세워서 이동. 협재 도착하자마자 꺼내서 사진부터 찍어요 📸</div>
+            <div class="card-tags">
+              <span class="tag" style="background:#fdf2f8;color:#be185d">🎂 생일케이크</span>
+              <span class="tag tag-reserve">⚠️ 픽업시간 사전예약 필수</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:#be185d;font-weight:700">16:20</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🏖️</div>
+          <div class="card-body">
+            <div class="card-name">협재해수욕장 + 케이크 포토 📸</div>
+            <div class="card-type">해변 · 서부 한림읍 · 에메랄드 바다+비양도 배경</div>
+            <div class="card-note">도착하면 케이크 꺼내서 사진 먼저! 오후 4~5시 황금빛 햇살이 케이크 배경으로 완벽해요. 사진 찍고 나서 발 담그기 🌊</div>
+            <div class="card-tags">
+              <span class="tag tag-time-pm">16:40~17:20</span>
+              <span class="tag tag-free">✓ 무료</span>
+              <span class="tag" style="background:#fdf2f8;color:#be185d">📸 케이크 포토</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">16:40</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">협재 →</span>
+            <span style="background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#374151;white-space:nowrap">🌬️ 신창풍차</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 10분</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🌬️</div>
+          <div class="card-body">
+            <div class="card-name">신창풍차 해안도로 + 수월봉 포토</div>
+            <div class="card-type">한경면 · 협재 10분 · 하얀 풍차+오션뷰</div>
+            <div class="card-note">하얀 풍차 배경으로 케이크 사진 추가 컷! 수월봉 잔디밭은 넓어서 가족사진 찍기 딱. 차 세우고 15분이면 충분해요.</div>
+            <div class="card-tags">
+              <span class="tag tag-time-pm">17:20~17:35</span>
+              <span class="tag tag-free">✓ 무료</span>
+              <span class="tag" style="background:#fdf2f8;color:#be185d">📸 풍차+케이크</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">17:20</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">신창풍차 →</span>
+            <span style="background:#faf5ff;border:1.5px solid #ddd6fe;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#7b5ea7;white-space:nowrap">☕ 인스밀</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 5분</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 인스밀 카페 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#7b5ea7;border-color:#6d28d9"></div>
+      <div class="place-card" style="border-left:4px solid #7b5ea7;background:#faf5ff">
+        <div class="card-inner">
+          <div class="card-emoji">☕</div>
+          <div class="card-body">
+            <div class="card-name">인스밀 <span style="font-size:11px;color:#7b5ea7;font-weight:600">카페</span></div>
+            <div class="card-type">한경면 신창풍차 옆 · 방앗간 개조 오션뷰 카페</div>
+            <div class="card-note">야외석 넓어서 꼬맹이 뛰어다닐 수 있어요. 보리개역·마농스콘. 수요일 휴무 → 목 OK. 케이크 먹어도 좋아요 🎂</div>
+            <div class="card-tags">
+              <span class="tag tag-time-pm">17:35~18:20</span>
+              <span class="tag tag-kids">👶 야외 넓음</span>
+              <span class="tag" style="background:#ede9fe;color:#5b21b6">☕ 카페 · 인도</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:#7b5ea7">17:35</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:80px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 저녁식당까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">인스밀 →</span>
+            <span style="background:#fef9f7;border:1.5px solid #fde8e0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#e8603a;white-space:nowrap">🍽️ 협재해녀의집</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 5분</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">인스밀 →</span>
+            <span style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:600;color:#94a3b8;white-space:nowrap">🍽️ 돈사돈 서귀포</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 50분</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 저녁 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--coral);border-color:#c2410c"></div>
+      <div class="place-card" style="border-left:4px solid var(--coral);background:#fef9f7">
+        <div class="card-inner">
+          <div class="card-emoji">🍽️</div>
+          <div class="card-body">
+            <div class="card-name">저녁식사 — 3곳 중 선택</div>
+            <div class="card-type">서귀포 숙소 가는 길 · 19:00~20:00<br><span style="font-size:11px;color:#7b5ea7">💡 우진해장국 도착 당일 포장 후 숙소서 먹어도 OK!</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">1순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">협재해녀의집</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">해산물국수·보말죽<br>협재 해변 바로 앞</div>
+              </div>
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">2순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">돈사돈 서귀포</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">숙성 흑돼지<br>숙소 5분 · 가족석</div>
+              </div>
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">3순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">대유가든</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">흑돼지 양념갈비<br>남원읍 · 가성비</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--coral)">19:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🏠</div>
+          <div class="card-body">
+            <div class="card-name">달가든하우스 체크인 + 풀장 🏊</div>
+            <div class="card-type">숙소 · 서귀포 서호동</div>
+            <div class="card-note">풀장에서 또용이 생일 마무리! 21:00 취침 목표 💤</div>
+            <div class="card-tags">
+              <span class="tag tag-time-eve">20:00</span>
+              <span class="tag" style="background:#e0f2fe;color:#075985">🏊 풀장</span>
+              <span class="tag" style="background:#fdf2f8;color:#be185d">🎂 생일 마무리</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">20:00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-header">
+    <div class="day-badge" style="background:#2d8a5e">Day 2</div>
+    <div class="day-info">
+      <h3>5/22 금 — 동부 탐방</h3>
+      <p>남원·구좌 방면 · 🐬 돌고래 + 🏖️ 모래놀이 + 🌅 노을</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🐴</div>
+          <div class="card-body">
+            <div class="card-name">대한목장 <span class="star">★★★★★</span></div>
+            <div class="card-type">목장 체험 · 남원읍 · 숙소에서 30분</div>
+            <div class="card-note">⭐ 오전 황금타임! 대나무숲·당근 말 먹이기 2시간. 12:00엔 출발해야 점심·낮잠 맞아요 🐎</div>
+            <div class="card-tags">
+              <span class="tag tag-time-am">10:00~12:00 ⭐황금</span>
+              <span class="tag tag-free">✓ 입장무료</span>
+              <span class="tag tag-cost">당근 5천원</span>
+              <span class="tag tag-kids">👶👶 컨디션 최고!</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">10:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 점심 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--coral);border-color:#c2410c"></div>
+      <div class="place-card" style="border-left:4px solid var(--coral);background:#fef9f7">
+        <div class="card-inner">
+          <div class="card-emoji">🍽️</div>
+          <div class="card-body">
+            <div class="card-name">점심 — 2곳 중 선택</div>
+            <div class="card-type">남원읍 · 대한목장 근처 · 12:00</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">1순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">공천포식당</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">보말칼국수·전복뚝배기<br>남원읍 공천포로 47-4<br>바다뷰 점심</div>
+              </div>
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">2순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">담소요 카페</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">목장뷰 브런치<br>남원읍 태위로360번길<br>야외석 여유</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--coral)">12:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 낮잠 배너 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#fbbf24;border-color:#f59e0b"></div>
+      <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fde68a;border-radius:14px;padding:12px 16px;display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span style="font-size:20px">😴</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#92400e">낮잠 타임 — 남원→김녕 이동 중 (약 40분)</div>
+          <div style="font-size:12px;color:#78350f">12:30 출발 → 볼보 카시트에서 쿨쿨 → 13:10 김녕 도착! 14:00 탑승 20분 전 여유 있게 ✅</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 요트 확정 2:20 -->
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card new-add">
+        <div class="card-inner">
+          <div class="card-emoji">🚤</div>
+          <div class="card-body">
+            <div class="card-name">김녕요트 돌고래 일반투어 <span class="star">★★★★★</span></div>
+            <div class="card-type">요트투어 · 구좌읍 김녕항 · 📞 064-782-5271</div>
+            <div class="card-note">오후 3~4시 돌고래 골든타임 정중앙! 낮잠 후 개운하게 탑승 🐬 또용 무료<br>⚠️ <strong>14:00 김녕항 도착</strong> (탑승 20분 전)</div>
+            <div class="card-tags">
+              <span class="tag" style="background:#16a34a;color:white;font-weight:700">✅ 오후 2:20 확정</span>
+              <span class="tag" style="background:#dcfce7;color:#15803d">🐬 3~4시 골든타임</span>
+              <span class="tag tag-cost">성인 3~4만 · 유아 무료</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;font-weight:700;color:#16a34a">14:20~15:50</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이동 칩: 요트 이후 분기 -->
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:90px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">김녕항 →</span>
+            <span style="background:#faf5ff;border:1.5px solid #ddd6fe;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#7b5ea7;white-space:nowrap">☕ 레이오버</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 5분</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">레이오버 →</span>
+            <span style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#15803d;white-space:nowrap">🏖️ 인카페</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 3분</span>
+            <span style="font-size:10px;color:#cbd5e1">|</span>
+            <span style="font-size:10px;color:#94a3b8">김녕항 직행</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 6분</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 레이오버 카페 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#7b5ea7;border-color:#6d28d9"></div>
+      <div class="place-card" style="border-left:4px solid #7b5ea7;background:#faf5ff">
+        <div class="card-inner">
+          <div class="card-emoji">☕</div>
+          <div class="card-body">
+            <div class="card-name">레이오버 <span style="font-size:11px;color:#7b5ea7;font-weight:600">카페</span></div>
+            <div class="card-type">구좌읍 해맞이해안로 648 · 2층 통창 오션뷰</div>
+            <div class="card-note">요트 흥분 가라앉히고 음료 한 잔. 10:30~18:30 · 인도</div>
+            <div class="card-tags">
+              <span class="tag tag-time-pm">16:00~16:20</span>
+              <span class="tag" style="background:#ede9fe;color:#5b21b6">☕ 인도</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:#7b5ea7">16:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이동 칩: 레이오버→인카페 -->
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">레이오버 →</span>
+            <span style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#15803d;white-space:nowrap">🏖️ 인카페온더비치</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 3분</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 인카페 -->
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card new-add">
+        <div class="card-inner">
+          <div class="card-emoji">🏖️</div>
+          <div class="card-body">
+            <div class="card-name">인카페온더비치 <span class="star">★★★★★</span></div>
+            <div class="card-type">바다 카페+모래놀이 · 구좌읍 해맞이해안로 943</div>
+            <div class="card-note">프라이빗 해변 모래놀이·샤워 무료. 꿀달·또용 모래 실컷! 수영복 필수 👙</div>
+            <div class="card-tags">
+              <span class="tag tag-time-pm">16:20~18:30</span>
+              <span class="tag tag-free">✓ 샤워 무료</span>
+              <span class="tag tag-kids">👶👶 모래 실컷!</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">16:20</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이동 칩: 인카페→오저여 -->
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">인카페 →</span>
+            <span style="background:#fdf2f8;border:1.5px solid #f9a8d4;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#be185d;white-space:nowrap">🌅 오저여 선셋</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 5분</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 오저여 -->
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card new-add">
+        <div class="card-inner">
+          <div class="card-emoji">🌅</div>
+          <div class="card-body">
+            <div class="card-name">오저여 선셋 트렁크뷰 <span class="star">★★★★★</span></div>
+            <div class="card-type">구좌읍 행원리 · 인카페 5분</div>
+            <div class="card-note">5/22 일몰 19:32. 담요 깔고 트렁크에서 온가족 노을 🌇</div>
+            <div class="card-tags">
+              <span class="tag tag-time-eve">19:00~19:35</span>
+              <span class="tag tag-free">✓ 무료</span>
+              <span class="tag" style="background:#fce7f3;color:#831843">🌇 일몰 19:32</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">19:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이동 칩: 오저여→저녁 -->
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:80px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 저녁식당까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px">
+            <span style="font-size:11px;color:#94a3b8">오저여 →</span>
+            <span style="background:#fef9f7;border:1.5px solid #fde8e0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#e8603a;white-space:nowrap">🍽️ 도민상회</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 1분</span>
+            <span style="font-size:10px;color:#16a34a;font-weight:700">바로 옆!</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px">
+            <span style="font-size:11px;color:#94a3b8">오저여 →</span>
+            <span style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:600;color:#94a3b8;white-space:nowrap">🍽️ 다시버시</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 7분</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 저녁 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--coral);border-color:#c2410c"></div>
+      <div class="place-card" style="border-left:4px solid var(--coral);background:#fef9f7">
+        <div class="card-inner">
+          <div class="card-emoji">🍽️</div>
+          <div class="card-body">
+            <div class="card-name">저녁식사 — 2곳 중 선택</div>
+            <div class="card-type">오저여 바로 옆 · 19:40</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">1순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">도민상회</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">흑돼지 오겹살<br>구좌읍 행원로1길 32-3<br>오션뷰 · 오저여 바로 옆</div>
+              </div>
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">2순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">다시버시</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">갈치조림 ★4.7<br>구좌읍<br>동부 대표 맛집</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--coral)">19:40</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🏠</div>
+          <div class="card-body">
+            <div class="card-name">숙소 복귀 + 풀장</div>
+            <div class="card-note">20:00 숙소 → 씻기기 → 풀장 30분 → 21:00 취침 💤</div>
+            <div class="card-tags">
+              <span class="tag tag-time-eve">20:00</span>
+              <span class="tag" style="background:#e0f2fe;color:#075985">🏊 풀장</span>
+              <span class="tag" style="background:#f3e8ff;color:#6b21a8">💤 21:00 취침</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">20:00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-header">
+    <div class="day-badge" style="background:#8b5e3c">Day 3</div>
+    <div class="day-info">
+      <h3>5/23 토 — 중산간 & 체험</h3>
+      <p>에코랜드·조천·표선 방면</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🚂</div>
+          <div class="card-body">
+            <div class="card-name">에코랜드 <span class="star">★★★★★</span></div>
+            <div class="card-type">테마파크 · 조천읍 · 8:30 오픈</div>
+            <div class="card-note">⭐ 오전 황금타임 오픈런! 8:30 도착 목표. 기차 타고 4개 역 투어 2시간. 주말이라 일찍 가야 덜 붐벼요!</div>
+            <div class="card-tags">
+              <span class="tag tag-time-am">08:30~10:30 ⭐황금</span>
+              <span class="tag tag-cost">성인 1.6만 · 소아 1.2만 · 유아 0.8만</span>
+              <span class="tag tag-kids">👶👶 기차 최고!</span>
+            </div>
+          </div>
+          <div class="card-right">
+            <span style="font-size:11px;color:var(--text-mid)">08:30</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">에코랜드 →</span>
+            <span style="background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#374151;white-space:nowrap">🪨 돌문화공원</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 2분</span>
+            <span style="font-size:10px;color:#16a34a;font-weight:700">바로 옆!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Day 3 에코랜드 후 카페 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#7b5ea7;border-color:#6d28d9"></div>
+      <div class="place-card" style="border-left:4px solid #7b5ea7;background:#faf5ff">
+        <div class="card-inner">
+          <div class="card-emoji">☕</div>
+          <div class="card-body">
+            <div class="card-name">에코랜드 호텔 카페 <span style="font-size:11px;color:#7b5ea7;font-weight:600">카페</span></div>
+            <div class="card-type">에코랜드 내부 · 이동 없이 바로</div>
+            <div class="card-note">기차 투어 후 아이들 쉬는 타임. 뷰 좋은 야외석에서 음료 한 잔 🌿</div>
+            <div class="card-tags">
+              <span class="tag tag-time-am">10:30</span>
+              <span class="tag" style="background:#ede9fe;color:#5b21b6">☕ 카페 · 인도</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:#7b5ea7">10:30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card new-add">
+        <div class="card-inner">
+          <div class="card-emoji">🪨</div>
+          <div class="card-body">
+            <div class="card-name">돌문화공원 <span class="star">★★★★☆</span></div>
+            <div class="card-type">자연공원 · 조천읍 (에코랜드 바로 옆)</div>
+            <div class="card-note">다자녀 무료! 실내 키카(4~6세, 양말 필수). 11:30까지만 가볍게.</div>
+            <div class="card-tags">
+              <span class="tag tag-free">✓ 다자녀 무료</span>
+              <span class="tag tag-kids">👶 키카</span>
+              <span class="tag tag-rain">🌧️ 비 OK</span>
+              <span style="background:#fee2e2;color:#991b1b" class="tag">⚠️ 월요일 휴무</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">10:45</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:80px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 점심까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">돌문화공원 →</span>
+            <span style="background:#fef9f7;border:1.5px solid #fde8e0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#e8603a;white-space:nowrap">🍜 면주막</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 5분</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">돌문화공원 →</span>
+            <span style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:600;color:#94a3b8;white-space:nowrap">🍜 담백 함덕점</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 15분</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 점심 인라인 선택형 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--coral);border-color:#c2410c"></div>
+      <div class="place-card" style="border-left:4px solid var(--coral);background:#fef9f7">
+        <div class="card-inner">
+          <div class="card-emoji">🍽️</div>
+          <div class="card-body">
+            <div class="card-name">점심 — 2곳 중 선택</div>
+            <div class="card-type">조천읍 · 12:00 → 이동 중 낮잠</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">1순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">면주막</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">고기국수·비빔국수<br>조천읍 · 에코랜드 4.7km<br>09:00~15:00</div>
+              </div>
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">2순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">담백 함덕점</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">갈치솥밥·전복솥밥<br>함덕19길 9 · 토요일 OK<br>목요일 휴무</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--coral)">12:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#fbbf24;border-color:#f59e0b"></div>
+      <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fde68a;border-radius:14px;padding:12px 16px;display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span style="font-size:20px">😴</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#92400e">낮잠 타임 — 조천→표선 이동 중 (약 40분)</div>
+          <div style="font-size:12px;color:#78350f">12:30 출발 → 볼보에서 쿨쿨 → 13:10 보롬왓 도착! ✅</div>
+        </div>
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지 (낮잠 이동)</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">점심식당 →</span>
+            <span style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#065f46;white-space:nowrap">🌸 보롬왓/밭디</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 40분</span>
+            <span style="font-size:10px;color:#16a34a;font-weight:700">😴 낮잠!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="place-card new-add">
+        <div class="card-inner">
+          <div class="card-emoji">🌸</div>
+          <div class="card-body">
+            <div class="card-name">보롬왓 or 밭디 — 날씨 보고 선택</div>
+            <div class="card-type">표선면 · 낮잠 후 오후 체험</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #d1fae5">
+                <div style="font-size:11px;color:#065f46;font-weight:700">맑으면 → 보롬왓</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">5월 무꽃 시즌<br>깡통열차 30분마다<br>입장 1만원대</div>
+              </div>
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #d1fae5">
+                <div style="font-size:11px;color:#065f46;font-weight:700">체험 원하면 → 밭디</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">포니 승마 체험<br>⚠️ 사전예약 필수<br>또용 연령 전화확인</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">13:15</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 글로시말차 테이크아웃 인라인 -->
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">보롬왓 →</span>
+            <span style="background:#faf5ff;border:1.5px solid #ddd6fe;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#7b5ea7;white-space:nowrap">☕ 글로시말차</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 45분</span>
+            <span style="font-size:10px;color:#16a34a;font-weight:700">⚠️ 16:00 전!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#7b5ea7;border-color:#6d28d9"></div>
+      <div class="place-card" style="border-left:4px solid #7b5ea7;background:#faf5ff">
+        <div class="card-inner">
+          <div class="card-emoji">☕</div>
+          <div class="card-body">
+            <div class="card-name">글로시말차 테이크아웃 <span style="font-size:11px;color:#7b5ea7;font-weight:600">카페</span></div>
+            <div class="card-type">조천읍 조함해안로 112 · 귀가 길 경유</div>
+            <div class="card-note">⚠️ 16:00 라스트오더! 보롬왓에서 서귀포 가는 길에 잠깐 들러 테이크아웃. 말차 꾸덕꾸덕 시그니처 🍵</div>
+            <div class="card-tags">
+              <span class="tag tag-time-pm">16:00 이전</span>
+              <span class="tag" style="background:#ede9fe;color:#5b21b6">☕ 테이크아웃</span>
+              <span class="tag" style="background:#fee2e2;color:#991b1b">⚠️ 16:00 라스트오더</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:#7b5ea7">~16:00</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 저녁까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">보롬왓/밭디 →</span>
+            <span style="background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#374151;white-space:nowrap">🛒 올레시장</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 30분</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 저녁 올레시장 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--coral);border-color:#c2410c"></div>
+      <div class="place-card" style="border-left:4px solid var(--coral);background:#fef9f7">
+        <div class="card-inner">
+          <div class="card-emoji">🛒</div>
+          <div class="card-body">
+            <div class="card-name">저녁 — 서귀포 매일올레시장</div>
+            <div class="card-type">서귀포 · 18:30~19:30</div>
+            <div class="card-note">흑돼지꼬치 · 한라봉아이스크림 · 기념품 쇼핑까지 한 번에. 가볍고 즐거운 시장 저녁 🎪</div>
+            <div class="card-tags">
+              <span class="tag tag-time-eve">18:30</span>
+              <span class="tag tag-free">✓ 무료 입장</span>
+              <span class="tag tag-kids">👶👶 꼬치+아이스</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--coral)">18:30</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-header">
+    <div class="day-badge" style="background:#7b5ea7">Day 4</div>
+    <div class="day-info">
+      <h3>5/24 일 — 귀가</h3>
+      <p>🚗 렌터카 반납 15:00 → ✈️ 17:35 출발</p>
+    </div>
+  </div>
+
+  <!-- 반납 시간 경고 박스 -->
+  <div class="notice" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b;margin-bottom:14px">
+    <span class="notice-icon">⏰</span>
+    <div><strong>렌터카 반납 15:00!</strong> 에스렌트카 본사 반납 후 셔틀·택시로 공항 이동 약 20분. <strong>14:30 이전 출발</strong>해야 여유 있어요. Day4는 제주 북부(조천·제주시) 위주로 동선 잡기.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🏊</div>
+          <div class="card-body">
+            <div class="card-name">숙소 풀장 아침 물놀이 + 체크아웃</div>
+            <div class="card-type">달가든하우스 · 체크아웃 11:00</div>
+            <div class="card-note">마지막 날 아침은 느긋하게 풀장에서! 수영복 세탁은 전날 밤에.</div>
+            <div class="card-tags">
+              <span class="tag tag-time-am">09:00~11:00</span>
+              <span class="tag" style="background:#e0f2fe;color:#075985">🏊 풀장</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">09:00</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:80px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 체크아웃 후 식사까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">달가든하우스 →</span>
+            <span style="background:#fef9f7;border:1.5px solid #fde8e0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#e8603a;white-space:nowrap">🍽️ 우진해장국</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 40분</span>
+            
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">달가든하우스 →</span>
+            <span style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#94a3b8;white-space:nowrap">🍽️ 담백 함덕점</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 40분</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 아침·점심 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--coral);border-color:#c2410c"></div>
+      <div class="place-card" style="border-left:4px solid var(--coral);background:#fef9f7">
+        <div class="card-inner">
+          <div class="card-emoji">🍽️</div>
+          <div class="card-body">
+            <div class="card-name">아침·점심 — 2곳 중 선택</div>
+            <div class="card-type">체크아웃 후 · 11:00~12:00</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">1순위 (포장 OK)</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">우진해장국</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">고사리육개장·몸국<br>제주시 서사로 11<br>06:00~22:00 · 포장 OK<br><span style="color:#7b5ea7;font-weight:700">💡 Day 1 도착 당일 포장도 가능!</span></div>
+              </div>
+              <div style="background:white;border-radius:8px;padding:8px 10px;border:1px solid #fde8e0">
+                <div style="font-size:11px;color:var(--coral);font-weight:700">2순위</div>
+                <div style="font-size:12px;font-weight:700;margin-top:2px">담백 함덕점</div>
+                <div style="font-size:11px;color:var(--text-mid);margin-top:2px">갈치솥밥·전복솥밥<br>함덕19길 9<br>글로시말차 바로 옆</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--coral)">11:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">식사 후 →</span>
+            <span style="background:#faf5ff;border:1.5px solid #ddd6fe;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#7b5ea7;white-space:nowrap">☕ 글로시말차</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 20분</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 글로시말차 인라인 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#7b5ea7;border-color:#6d28d9"></div>
+      <div class="place-card" style="border-left:4px solid #7b5ea7;background:#faf5ff">
+        <div class="card-inner">
+          <div class="card-emoji">☕</div>
+          <div class="card-body">
+            <div class="card-name">글로시말차 <span class="star">★★★★★</span> <span style="font-size:11px;color:#7b5ea7;font-weight:600">카페</span></div>
+            <div class="card-type">조천읍 조함해안로 112 · 오션뷰 말차</div>
+            <div class="card-note">10:30 오픈. 오션뷰 자리에서 제주 마지막 감성 충전 🍵 ⚠️ 16:00 라스트오더</div>
+            <div class="card-tags">
+              <span class="tag tag-time-am">10:30~17:00</span>
+              <span class="tag" style="background:#ede9fe;color:#5b21b6">☕ 카페 · 인도</span>
+              <span class="tag" style="background:#fee2e2;color:#991b1b">⚠️ 16:00 라스트오더</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:#7b5ea7">11:30</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">글로시말차 →</span>
+            <span style="background:#e0f2fe;border:1.5px solid #bae6fd;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#0369a1;white-space:nowrap">🌊 함덕해수욕장</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 2분</span>
+            <span style="font-size:10px;color:#16a34a;font-weight:700">바로 옆!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="place-card option">
+        <div class="card-inner">
+          <div class="card-emoji">🌊</div>
+          <div class="card-body">
+            <div class="card-name">함덕해수욕장 + 다니쉬 베이커리 <span style="font-size:11px;color:var(--gray)">(여유 있으면)</span></div>
+            <div class="card-type">해변 · 글로시말차 바로 옆 · 5분</div>
+            <div class="card-note">함덕 물 얕고 맑아 또용 안전. 다니쉬 일요일 OK! ⚠️ 12:30엔 출발해야 렌터카 반납 맞아요.</div>
+            <div class="card-tags">
+              <span class="tag tag-time-pm">~12:30</span>
+              <span class="tag tag-free">✓ 무료</span>
+              <span class="tag" style="background:#fee2e2;color:#991b1b">⚠️ 12:30 출발 필수</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">12:00</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 다음 목적지까지</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">함덕 →</span>
+            <span style="background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#374151;white-space:nowrap">🦑 센잇 화석과자</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 25분</span>
+            <span style="font-size:10px;color:#16a34a;font-weight:700">공항 방향</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">🦑</div>
+          <div class="card-body">
+            <div class="card-name">센잇 화석과자 (기념품)</div>
+            <div class="card-type">제주시 이도동 · 에스렌트카 가는 길목</div>
+            <div class="card-note">반납 전 마지막 코스! 10:00~18:00. 잠깐 들러서 기념품 픽업.</div>
+            <div class="card-tags">
+              <span class="tag tag-cost">6,800원~</span>
+              <span class="tag tag-kids">👶 신기해함</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">13:30</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="display:flex;align-items:flex-start;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0">
+        <div style="width:2px;background:#e2e8f0;min-height:44px"></div>
+      </div>
+      <div style="flex:1;padding:7px 0 7px 12px">
+        <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:7px">⬇ 마지막 코스</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:11px;color:#94a3b8">센잇 →</span>
+            <span style="background:#fef2f2;border:1.5px solid #fecaca;border-radius:20px;padding:4px 11px;font-size:11px;font-weight:700;color:#dc2626;white-space:nowrap">🚙 에스렌트카 반납</span>
+            <span style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700;color:#0369a1">🚗 5분</span>
+            <span style="font-size:10px;color:#16a34a;font-weight:700">반납!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed" style="border-left-color:var(--coral)">
+        <div class="card-inner">
+          <div class="card-emoji">🚙</div>
+          <div class="card-body">
+            <div class="card-name" style="color:var(--coral)">렌터카 반납 — 에스렌트카 본사</div>
+            <div class="card-note">14:30 출발 → 15:00 반납. 공항 셔틀 20분. 짐 미리 내려두기!</div>
+            <div class="card-tags">
+              <span class="tag" style="background:#fee2e2;color:#991b1b">⏰ 15:00 반납 마감</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;font-weight:700;color:var(--coral)">14:30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot confirmed"></div>
+      <div class="place-card confirmed">
+        <div class="card-inner">
+          <div class="card-emoji">✈️</div>
+          <div class="card-body">
+            <div class="card-name">제주공항 탑승 — 7C128</div>
+            <div class="card-note">15:20 공항 → 체크인 → 17:35 출발 → 18:50 김포 도착</div>
+            <div class="card-tags">
+              <span class="tag" style="background:var(--ocean);color:white">17:35 출발</span>
+              <span class="tag tag-cost">예약번호 XBQPQM</span>
+            </div>
+          </div>
+          <div class="card-right"><span style="font-size:11px;color:var(--text-mid)">15:20</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════ MAP ═══════════════════════ -->
+<div id="map" class="bg-white">
+<div class="section">
+  <h2 class="section-title">🗺️ 구역별 동선 지도</h2>
+  <p class="section-sub">서귀포 숙소 베이스로 동서남북 알차게. 같은 구역끼리 하루에 묶기.</p>
+
+  <div class="jeju-map-wrap">
+    <svg viewBox="0 0 800 460" style="width:100%;height:auto;display:block">
+      <!-- 바다 배경 -->
+      <rect width="800" height="460" fill="#c8e6f0" rx="12"/>
+      
+      <!-- 제주도 모양 (간략화) -->
+      <path d="M 130 200 Q 150 150 200 140 Q 280 120 380 125 Q 480 120 560 135 Q 630 145 670 175 Q 700 200 700 230 Q 700 270 680 290 Q 650 320 600 340 Q 540 360 470 365 Q 400 370 330 360 Q 260 350 200 325 Q 160 305 145 275 Q 130 250 130 200Z" 
+            fill="#e8dcc8" stroke="#c4a97a" stroke-width="2"/>
+      
+      <!-- 한라산 -->
+      <ellipse cx="400" cy="240" rx="45" ry="35" fill="#a8c898" opacity="0.6"/>
+      <text x="400" y="243" text-anchor="middle" font-size="9" fill="#2d5a27" font-weight="600">한라산</text>
+
+      <!-- 숙소 마커 (서귀포) -->
+      <circle cx="370" cy="315" r="14" fill="#1a6b8a" stroke="white" stroke-width="2"/>
+      <text x="370" y="319" text-anchor="middle" font-size="10" fill="white">🏠</text>
+      <text x="370" y="340" text-anchor="middle" font-size="10" fill="#1a2332" font-weight="700">달가든하우스</text>
+
+      <!-- DAY1 협재 -->
+      <circle cx="195" cy="210" r="10" fill="#4fa8c7" stroke="white" stroke-width="2"/>
+      <text x="195" y="213" text-anchor="middle" font-size="9" fill="white">D1</text>
+      <text x="195" y="230" text-anchor="middle" font-size="10" fill="#1a2332">협재해수욕장</text>
+
+      <!-- DAY2 대한목장 -->
+      <circle cx="490" cy="295" r="10" fill="#2d8a5e" stroke="white" stroke-width="2"/>
+      <text x="490" y="298" text-anchor="middle" font-size="9" fill="white">D2</text>
+      <text x="490" y="315" text-anchor="middle" font-size="10" fill="#1a2332">대한목장</text>
+
+      <!-- DAY2 아쿠아플라넷 -->
+      <circle cx="600" cy="270" r="10" fill="#2d8a5e" stroke="white" stroke-width="2"/>
+      <text x="600" y="273" text-anchor="middle" font-size="9" fill="white">D2</text>
+      <text x="600" y="254" text-anchor="middle" font-size="9" fill="#1a2332">아쿠아플라넷</text>
+
+      <!-- DAY2 인카페온더비치 -->
+      <circle cx="630" cy="185" r="10" fill="#2d8a5e" stroke="white" stroke-width="2"/>
+      <text x="630" y="188" text-anchor="middle" font-size="9" fill="white">D2</text>
+      <text x="630" y="173" text-anchor="middle" font-size="9" fill="#1a2332">인카페온더비치</text>
+
+      <!-- DAY3 에코랜드 -->
+      <circle cx="490" cy="175" r="10" fill="#8b5e3c" stroke="white" stroke-width="2"/>
+      <text x="490" y="178" text-anchor="middle" font-size="9" fill="white">D3</text>
+      <text x="490" y="162" text-anchor="middle" font-size="10" fill="#1a2332">에코랜드</text>
+
+      <!-- DAY3 돌문화공원 -->
+      <circle cx="455" cy="180" r="10" fill="#8b5e3c" stroke="white" stroke-width="2"/>
+      <text x="455" y="183" text-anchor="middle" font-size="9" fill="white">D3</text>
+      <text x="420" y="168" text-anchor="middle" font-size="9" fill="#1a2332">돌문화공원</text>
+
+      <!-- DAY3 보롬왓 -->
+      <circle cx="530" cy="295" r="10" fill="#8b5e3c" stroke="white" stroke-width="2"/>
+      <text x="530" y="298" text-anchor="middle" font-size="9" fill="white">D3</text>
+      <text x="560" y="314" text-anchor="middle" font-size="9" fill="#1a2332">보롬왓</text>
+
+      <!-- DAY4 글로시말차 -->
+      <circle cx="510" cy="160" r="10" fill="#7b5ea7" stroke="white" stroke-width="2"/>
+      <text x="510" y="163" text-anchor="middle" font-size="9" fill="white">D4</text>
+      <text x="510" y="149" text-anchor="middle" font-size="9" fill="#1a2332">글로시말차</text>
+
+      <!-- DAY4 함덕 -->
+      <circle cx="530" cy="148" r="10" fill="#7b5ea7" stroke="white" stroke-width="2"/>
+      <text x="530" y="151" text-anchor="middle" font-size="9" fill="white">D4</text>
+      <text x="558" y="140" text-anchor="middle" font-size="9" fill="#1a2332">함덕해수욕장</text>
+
+      <!-- 공항 -->
+      <circle cx="370" cy="155" r="12" fill="#e8603a" stroke="white" stroke-width="2"/>
+      <text x="370" y="159" text-anchor="middle" font-size="9" fill="white">✈️</text>
+      <text x="370" y="144" text-anchor="middle" font-size="10" fill="#1a2332" font-weight="700">제주공항</text>
+
+      <!-- 동선 화살표 Day2 -->
+      <path d="M 370 303 Q 430 295 478 295" stroke="#2d8a5e" stroke-width="1.5" fill="none" stroke-dasharray="4,3" opacity="0.6"/>
+      <path d="M 490 305 Q 545 290 590 272" stroke="#2d8a5e" stroke-width="1.5" fill="none" stroke-dasharray="4,3" opacity="0.6"/>
+      <path d="M 600 262 Q 615 225 622 195" stroke="#2d8a5e" stroke-width="1.5" fill="none" stroke-dasharray="4,3" opacity="0.6"/>
+
+      <!-- 범례 -->
+      <rect x="20" y="20" width="140" height="110" fill="white" opacity="0.9" rx="8"/>
+      <text x="30" y="38" font-size="10" font-weight="700" fill="#1a2332">범례</text>
+      <circle cx="33" cy="52" r="6" fill="#4fa8c7"/>
+      <text x="45" y="56" font-size="9" fill="#1a2332">Day 1 · 서부</text>
+      <circle cx="33" cy="68" r="6" fill="#2d8a5e"/>
+      <text x="45" y="72" font-size="9" fill="#1a2332">Day 2 · 동부</text>
+      <circle cx="33" cy="84" r="6" fill="#8b5e3c"/>
+      <text x="45" y="88" font-size="9" fill="#1a2332">Day 3 · 중산간</text>
+      <circle cx="33" cy="100" r="6" fill="#7b5ea7"/>
+      <text x="45" y="104" font-size="9" fill="#1a2332">Day 4 · 귀가</text>
+      <circle cx="33" cy="116" r="6" fill="#1a6b8a"/>
+      <text x="45" y="120" font-size="9" fill="#1a2332">숙소</text>
+    </svg>
+
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#4fa8c7"></div>Day1 서부</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2d8a5e"></div>Day2 동부</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8b5e3c"></div>Day3 중산간</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7b5ea7"></div>Day4 귀가</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e8603a"></div>공항</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1a6b8a"></div>숙소</div>
+    </div>
+  </div>
+
+  <!-- 구역별 거리 안내 -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:20px">
+    <div style="background:white;border-radius:12px;padding:14px;border-top:3px solid #4fa8c7">
+      <div style="font-size:12px;font-weight:700;color:#4fa8c7;margin-bottom:6px">Day 1 · 서부</div>
+      <div style="font-size:12px;color:var(--text-mid)">공항 → 협재 약 35분<br>협재 → 서귀포 약 55분</div>
+    </div>
+    <div style="background:white;border-radius:12px;padding:14px;border-top:3px solid #2d8a5e">
+      <div style="font-size:12px;font-weight:700;color:#2d8a5e;margin-bottom:6px">Day 2 · 동부</div>
+      <div style="font-size:12px;color:var(--text-mid)">숙소 → 대한목장 약 30분<br>대한목장 → 아쿠아 약 40분<br>아쿠아 → 인카페 약 20분</div>
+    </div>
+    <div style="background:white;border-radius:12px;padding:14px;border-top:3px solid #8b5e3c">
+      <div style="font-size:12px;font-weight:700;color:#8b5e3c;margin-bottom:6px">Day 3 · 중산간</div>
+      <div style="font-size:12px;color:var(--text-mid)">숙소 → 에코랜드 약 40분<br>에코랜드 → 돌문화 약 5분<br>돌문화 → 보롬왓 약 40분</div>
+    </div>
+    <div style="background:white;border-radius:12px;padding:14px;border-top:3px solid #7b5ea7">
+      <div style="font-size:12px;font-weight:700;color:#7b5ea7;margin-bottom:6px">Day 4 · 귀가</div>
+      <div style="font-size:12px;color:var(--text-mid)">숙소 → 올래국수 약 40분<br>글로시말차 → 공항 약 30분<br>공항 15:30 도착 목표</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ FOOD ═══════════════════════ -->
+<div id="food" class="bg-ocean-pale">
+<div class="section">
+  <h2 class="section-title">🍜 제주 꼭 먹어야 할 것들</h2>
+  <p class="section-sub">2025-2026 데이터 기반 리서치 + 아이 동반 가능 여부 크로스체크 완료</p>
+
+  <div class="food-grid">
+    <div class="food-card">
+      <div class="food-category">🍜 향토 국물</div>
+      <div class="food-name">고기국수</div>
+      <div class="food-place">📍 올래국수 · 제주시</div>
+      <div class="food-detail">돼지 사골 육수 + 수육 올림. 단일메뉴. 아이들 국물 좋아함. 8:00 오픈 — Day4 아침 딱.</div>
+      <div class="food-price">1만원</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-category">🐷 필수 야식</div>
+      <div class="food-name">숙성 흑돼지구이</div>
+      <div class="food-place">📍 돈사돈 서귀포점 · 숙소 근처</div>
+      <div class="food-detail">멜젓에 찍어 먹기. 수요일 휴무. 넓은 가족석. 김치찌개 서비스.</div>
+      <div class="food-price">15,000원~/1인분</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-category">🐟 BTS 맛집</div>
+      <div class="food-name">고등어묵은지찜</div>
+      <div class="food-place">📍 이춘옥원조고등어쌈밥 · 애월</div>
+      <div class="food-detail">BTS 다녀간 곳. 오션뷰. 반찬 다양해 아이들 먹을 것 많음. 화요일 휴무.</div>
+      <div class="food-price">2인 4만원대</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-category">🍊 시장 간식</div>
+      <div class="food-name">흑돼지꼬치 + 한라봉아이스</div>
+      <div class="food-place">📍 서귀포 매일올레시장</div>
+      <div class="food-detail">Day3 저녁에 딱. 꼬치 · 한라봉아이스크림 · 오메기떡 · 기념품. 꼬맹이들 꼬치 좋아함.</div>
+      <div class="food-price">1인 5천~1만원</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-category">🦀 보말</div>
+      <div class="food-name">보말칼국수</div>
+      <div class="food-place">📍 쇠소깍가든소연이네 · 남원</div>
+      <div class="food-detail">행안부 착한가격업소. 1인 식사 가능. 18시 마감 주의. Day2 대한목장 근처.</div>
+      <div class="food-price">12,000원</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-category">🥯 2026 핫플</div>
+      <div class="food-name">런던베이글뮤지엄</div>
+      <div class="food-place">📍 구좌읍 (Day2 인카페 근처)</div>
+      <div class="food-detail">검색량 폭발 베이커리. 웨이팅 필수. 아이들 간식용. Day2 인카페 이후 들리기 딱.</div>
+      <div class="food-price">베이글 6천~1만원</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-category">🥐 함덕 명물</div>
+      <div class="food-name">브리오슈 + 감자빵</div>
+      <div class="food-place">📍 다니쉬 베이커리 · 함덕</div>
+      <div class="food-detail">하루 한정수량. 화·수 휴무라 5/24(일) OK. 글로시말차 근처. 케이크도 유명.</div>
+      <div class="food-price">1개 4천~6천원</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-category">🥐 서귀포 명물</div>
+      <div class="food-name">화석과자 (센잇)</div>
+      <div class="food-place">📍 제주시 이도동 (공항 10분)</div>
+      <div class="food-detail">1톤 프레스 해산물 전병. 오징어·새우·문어. 아이들 신기해함. 기념품으로도 최고!</div>
+      <div class="food-price">6,800원~</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ HOTPLACE ═══════════════════════ -->
+<div id="hotplace" class="bg-sand">
+<div class="section">
+  <h2 class="section-title">🔥 2025-2026 제주 핫플 분석</h2>
+  <p class="section-sub">검색량·인스타·다이닝코드 데이터 기반 리서치 결과 · 아이 동반 여부 표기</p>
+
+  <div class="notice">
+    <span class="notice-icon">📊</span>
+    <div>2025-2026 트렌드 3대 축: <strong>① 베이커리·말차 카페 검색 폭발</strong> · <strong>② 5-6월 수국 시즌 (#수국제주 인스타 급등)</strong> · <strong>③ 숙성 흑돼지 강조 맛집 증가</strong></div>
+  </div>
+
+  <div class="hot-grid">
+    <div class="hot-card">
+      <div class="hot-badge">🌸 5월 한정</div>
+      <div class="hot-name">🌺 휴애리 자연생활공원</div>
+      <div class="hot-where">서귀포 남원읍 · 대한목장 근처</div>
+      <div class="hot-desc">수국축제 (~6/16). 동물 먹이주기 포함. 5월 검색량 1위권. 아이들 꽃밭 뛰어다니기 완벽.</div>
+      <div class="hot-meta">
+        <span class="tag tag-season">🌸 수국축제</span>
+        <span class="tag tag-kids">👶 동물 먹이주기</span>
+        <span class="tag tag-cost">성인 1.3만</span>
+      </div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-badge">🔥 2026 검색 1위</div>
+      <div class="hot-name">🎨 아르떼뮤지엄</div>
+      <div class="hot-where">애월읍 · 렌터카 필수</div>
+      <div class="hot-desc">미디어아트 실내. 비 올 때 최고. 꼬맹이 사진 최고로 잘 나오는 곳. 10:00~20:00.</div>
+      <div class="hot-meta">
+        <span class="tag tag-rain">🌧️ 비 OK</span>
+        <span class="tag tag-kids">👶 사진 최고</span>
+        <span class="tag tag-cost">성인 1.8만</span>
+      </div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-badge">✅ 일정포함</div>
+      <div class="hot-name">🍵 글로시말차</div>
+      <div class="hot-where">조천읍 · Day4 확정</div>
+      <div class="hot-desc">말차 카페 검색 급증. 오션뷰. 10:30 오픈. Day4 귀가 전 必방문.</div>
+      <div class="hot-meta">
+        <span class="tag tag-time-am">10:30 오픈</span>
+        <span class="tag tag-cost">음료 8~1.2만</span>
+      </div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-badge">☕ 카페 핫플</div>
+      <div class="hot-name">☕ 인스밀</div>
+      <div class="hot-where">서귀포 한경면 (서부)</div>
+      <div class="hot-desc">방앗간 改 감성카페. 보리개역·마농스콘. 오션뷰 야외석 넓어 아이들 뛰어다닐 수 있음. 수 휴무.</div>
+      <div class="hot-meta">
+        <span class="tag tag-kids">👶 야외 넓음</span>
+        <span class="tag tag-cost">음료 1.2~1.8만</span>
+      </div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-badge">🆕 Threads 화제</div>
+      <div class="hot-name">🏖️ 인카페온더비치</div>
+      <div class="hot-where">구좌읍 · Day2 확정</div>
+      <div class="hot-desc">바다 앞 모래놀이 카페. 샤워 무료. 꼬맹이 특화 공간. Threads 조회 1312회 급상승 중.</div>
+      <div class="hot-meta">
+        <span class="tag tag-new">🆕 신규</span>
+        <span class="tag tag-kids">👶👶 모래놀이</span>
+        <span class="tag tag-free">샤워 무료</span>
+      </div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-badge">🌸 5월 최고</div>
+      <div class="hot-name">🌸 보롬왓</div>
+      <div class="hot-where">표선면 · Day3 옵션</div>
+      <div class="hot-desc">5월 무꽃 시즌 딱. 깡통열차. 웨딩촬영 명소라 분위기 있음. 메밀 초콜릿 판매.</div>
+      <div class="hot-meta">
+        <span class="tag tag-season">🌸 무꽃</span>
+        <span class="tag tag-kids">👶 깡통열차</span>
+        <span class="tag tag-new">🆕 추가</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ RAIN ═══════════════════════ -->
+<div id="rain" class="bg-white">
+<div class="section">
+  <h2 class="section-title">🌧️ 비 올 때 실내 옵션</h2>
+  <p class="section-sub">5월 제주는 갑작스런 비가 잦아요. 미리 대안 준비!</p>
+
+  <div class="rain-grid">
+    <div class="rain-card">
+      <div class="rain-star">★★★★★</div>
+      <div class="rain-name">🎨 아르떼뮤지엄</div>
+      <div class="rain-detail">미디어아트 · 애월<br>성인 1.8만 · 10:00~20:00<br>꼬맹이 사진 최고</div>
+    </div>
+    <div class="rain-card">
+      <div class="rain-star">★★★★☆</div>
+      <div class="rain-name">🎠 아르떼 키즈파크</div>
+      <div class="rain-detail">아르떼 옆 키즈 전용<br>실내 체험 특화<br>애월읍</div>
+    </div>
+    <div class="rain-card">
+      <div class="rain-star">★★★★★</div>
+      <div class="rain-name">🐟 아쿠아플라넷</div>
+      <div class="rain-detail">성산읍 · Day2 포함<br>해녀공연 포함<br>유아 무료</div>
+    </div>
+    <div class="rain-card">
+      <div class="rain-star">★★★★☆</div>
+      <div class="rain-name">🍬 하리보 해피월드</div>
+      <div class="rain-detail">젤리 테마 실내<br>제주시 오등동<br>어린이 1.6만</div>
+    </div>
+    <div class="rain-card">
+      <div class="rain-star">★★★★☆</div>
+      <div class="rain-name">🪨 돌문화공원</div>
+      <div class="rain-detail">조천읍 · 다자녀 무료<br>설문대할망 키카<br>월요일 휴무 주의</div>
+    </div>
+    <div class="rain-card">
+      <div class="rain-star">★★★☆☆</div>
+      <div class="rain-name">🍵 오설록 티뮤지엄</div>
+      <div class="rain-detail">서귀포 안덕면<br>무료 입장 · 음료 별도<br>넓은 실내 카페</div>
+    </div>
+    <div class="rain-card">
+      <div class="rain-star">★★★★☆</div>
+      <div class="rain-name">🚀 제주항공우주박물관</div>
+      <div class="rain-detail">서귀포 안덕면<br>비행기 좋아하면 대박<br>성인 1만</div>
+    </div>
+    <div class="rain-card">
+      <div class="rain-star">★★★★☆</div>
+      <div class="rain-name">🍌 스위트몽키</div>
+      <div class="rain-detail">한경면 · 바나나 체험<br>24개월도 OK<br>열대식물원</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ BUDGET ═══════════════════════ -->
+<div id="budget" class="bg-ocean-pale">
+<div class="section">
+  <h2 class="section-title">💰 예산표 (교차검증 완료)</h2>
+  <p class="section-sub">성인 2 + 꿀달(40개월·소아) + 또용(23개월·유아) 기준 · 실제 가격 검색 반영</p>
+
+  <!-- 연령 기준 안내 -->
+  <div style="background:white;border-radius:12px;padding:14px 16px;margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap">
+    <div style="font-size:12px;color:var(--text-mid)">
+      <span style="font-weight:700;color:var(--ocean)">꿀달 (40개월)</span> → 대부분 소아 요금 적용
+    </div>
+    <div style="font-size:12px;color:var(--text-mid)">|</div>
+    <div style="font-size:12px;color:var(--text-mid)">
+      <span style="font-weight:700;color:var(--green)">또용 (23개월)</span> → 대부분 <span style="color:var(--green);font-weight:700">무료!</span>
+    </div>
+    <div style="font-size:12px;color:var(--text-mid)">|</div>
+    <div style="font-size:12px;color:var(--text-mid)">
+      <span style="font-weight:700;color:#f59e0b">⚠️ 주의</span> 김녕요트 — 37개월 이상 소인요금 적용 (꿀달 해당)
+    </div>
+  </div>
+
+  <div class="budget-scroll" style="background:white;border-radius:16px;overflow-x:auto;box-shadow:var(--shadow-sm);margin-bottom:16px">
+    <table class="budget-table" style="min-width:600px">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>성인 2명</th>
+          <th>꿀달 (소아)</th>
+          <th>또용 (유아)</th>
+          <th style="text-align:right">합계</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#f8fafc">
+          <td colspan="5" style="font-size:11px;font-weight:700;color:var(--ocean);padding:8px 14px">✈️ 고정비</td>
+        </tr>
+        <tr><td>항공 (왕복)</td><td>확인 완료</td><td>-</td><td>-</td><td style="text-align:right">확인완료</td></tr>
+        <tr><td>렌터카 볼보 XC90</td><td colspan="3">213,422원 확정</td><td style="text-align:right">213,422원</td></tr>
+        <tr><td>카시트 2개</td><td colspan="3">브라이텍스+다이치</td><td style="text-align:right">48,000원</td></tr>
+        <tr style="background:#f8fafc">
+          <td colspan="5" style="font-size:11px;font-weight:700;color:#2d8a5e;padding:8px 14px">🐴 Day 2 (5/22)</td>
+        </tr>
+        <tr><td>대한목장 입장</td><td>무료</td><td>무료</td><td>무료</td><td style="text-align:right color:#16a34a">0원 🎉</td></tr>
+        <tr><td>당근 말 먹이기</td><td colspan="3">현장 구매</td><td style="text-align:right">5,000원</td></tr>
+        <tr><td>🚤 김녕요트 일반투어</td><td>39,000×2</td><td>29,000원 <span style="font-size:10px;color:#f59e0b">⚠️37개월↑소인</span></td><td style="color:var(--green);font-weight:600">무료 (36개월↓)</td><td style="text-align:right;font-weight:700">107,000원</td></tr>
+        <tr><td>인카페온더비치</td><td>음료 2잔</td><td colspan="2">-</td><td style="text-align:right">약 20,000원</td></tr>
+        <tr style="background:#f8fafc">
+          <td colspan="5" style="font-size:11px;font-weight:700;color:#8b5e3c;padding:8px 14px">🚂 Day 3 (5/23)</td>
+        </tr>
+        <tr><td>🚂 에코랜드</td><td>16,000×2</td><td>11,000원 <span style="font-size:10px;color:var(--gray)">(36개월↑어린이)</span></td><td style="color:var(--green);font-weight:600">무료 (36개월↓)</td><td style="text-align:right;font-weight:700">43,000원</td></tr>
+        <tr><td>돌문화공원</td><td colspan="3">다자녀 무료 확인</td><td style="text-align:right;color:#16a34a">0원 🎉</td></tr>
+        <tr><td>🌸 보롬왓 (옵션)</td><td>성인 포함 1인당</td><td colspan="2">가격 확인 필요</td><td style="text-align:right">약 3~4만원</td></tr>
+        <tr style="background:#f8fafc">
+          <td colspan="5" style="font-size:11px;font-weight:700;color:#7b5ea7;padding:8px 14px">🍵 Day 4 (5/24)</td>
+        </tr>
+        <tr><td>글로시말차</td><td>음료 2잔</td><td colspan="2">-</td><td style="text-align:right">약 20,000원</td></tr>
+        <tr><td>🍲 우진해장국</td><td>10,000×2</td><td colspan="2">아이들 공유</td><td style="text-align:right">약 20,000원</td></tr>
+        <tr><td>🦑 센잇 화석과자</td><td colspan="3">기념품 포장</td><td style="text-align:right">약 15,000원</td></tr>
+        <tr style="background:#f8fafc">
+          <td colspan="5" style="font-size:11px;font-weight:700;color:var(--gray);padding:8px 14px">🌧️ 우천 대비 옵션</td>
+        </tr>
+        <tr><td>아르떼뮤지엄 (비올때)</td><td>18,000×2</td><td>소아 가격 확인</td><td style="color:var(--green)">무료 추정</td><td style="text-align:right">약 4만원+</td></tr>
+        <tr class="budget-total">
+          <td colspan="4"><strong>관광비 합계 (고정비 제외)</strong><span style="font-size:11px;font-weight:400;margin-left:8px">렌터카+카시트 제외</span></td>
+          <td style="text-align:right"><strong>약 23~27만원</strong></td>
+        </tr>
+        <tr class="budget-total" style="background:#e0f2fe !important">
+          <td colspan="4"><strong>렌터카+카시트 포함 총 관광비</strong></td>
+          <td style="text-align:right;color:var(--ocean)"><strong>약 50~54만원</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 식비 + 절약 + 무료 혜택 -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:4px">
+    <div style="background:white;border-radius:12px;padding:16px">
+      <div style="font-size:13px;font-weight:700;color:var(--coral);margin-bottom:8px">🍜 4일 식비 가이드</div>
+      <div style="font-size:12px;color:var(--text-mid);line-height:1.9">
+        아침: 우진해장국 2만원<br>
+        점심: 보말칼국수·담소요 2~3만원<br>
+        저녁 흑돼지: 5~7만원 (4인)<br>
+        카페·간식: 1~2만원/일<br>
+        <strong style="color:var(--coral)">4일 식비 총 50~70만원 예상</strong>
+      </div>
+    </div>
+    <div style="background:white;border-radius:12px;padding:16px">
+      <div style="font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px">🎉 또용 무료 혜택 정리</div>
+      <div style="font-size:12px;color:var(--text-mid);line-height:1.9">
+        ✅ 김녕요트 — 36개월 미만 무료<br>
+        ✅ 에코랜드 — 36개월 미만 무료<br>
+        ✅ 대한목장 — 전연령 입장무료<br>
+        ✅ 협재·함덕 — 무료<br>
+        ✅ 돌문화공원 — 다자녀 전원무료<br>
+        <strong style="color:var(--green)">또용 절약액 약 5만원+!</strong>
+      </div>
+    </div>
+    <div style="background:#fffbeb;border-radius:12px;padding:16px;border:1px solid #fde68a">
+      <div style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:8px">⚠️ 연령 확인 필요</div>
+      <div style="font-size:12px;color:#78350f;line-height:1.9">
+        김녕요트: 37개월↑ 소인 29,000원<br>
+        → 꿀달 40개월 소인요금 적용 ✅<br>
+        → 또용 23개월 무료 ✅<br>
+        <br>
+        에코랜드: 36개월↑ 어린이 11,000원<br>
+        → 꿀달 소인요금 ✅<br>
+        → 또용 무료 ✅<br>
+        <br>
+        보롬왓: 현장 요금 재확인 추천
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ 주소록 ═══════════════════════ -->
+<div id="address" style="background:#1a2332;padding:40px 20px">
+<div style="max-width:920px;margin:0 auto">
+  <h2 style="font-family:'Gowun Batang',serif;font-size:24px;color:white;margin-bottom:6px">📍 네비 주소록</h2>
+  <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px">교차검증 완료 · 바로 복사해서 네비에 입력하세요</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#4fa8c7;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 1 · 서부</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🏖️ 협재해수욕장</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 한림읍 협재리 2497-1<br><span style="color:#f0c040">무료 · 연중</span></div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#2d8a5e;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 2 · 동부</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🐴 대한목장</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">서귀포시 남원읍 하례로620번길 19<br><span style="color:#f0c040">10:00~19:00 · 연중무휴</span></div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#2d8a5e;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 2 · 동부</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🚤 김녕요트</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 구좌읍 김녕항<br><span style="color:#f0c040">📞 064-782-5271</span><br>13:10 코스 탑승 추천</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#2d8a5e;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 2 · 동부</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🏖️ 인카페온더비치</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 구좌읍 해맞이해안로 943<br><span style="color:#f0c040">📞 050-7141-1638</span><br>10:00~18:00</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#8b5e3c;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 3 · 중산간</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🚂 에코랜드</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 조천읍 번영로 1278-169<br><span style="color:#f0c040">📞 064-802-8000</span><br>08:30 첫차 · 연중무휴</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#8b5e3c;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 3 · 중산간</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🪨 돌문화공원</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 조천읍 교래리 산95<br><span style="color:#f87171">⚠️ 월요일 휴무</span><br>다자녀 무료 · 5/23(토) OK</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#7b5ea7;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 4 · 귀가</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🍵 글로시말차</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 조천읍 조함해안로 112 1층<br><span style="color:#f0c040">10:00~17:00</span><br>⚠️ 16:00 라스트오더</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#7b5ea7;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 4 · 귀가</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🍲 우진해장국</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 서사로 11 (삼도이동 831)<br><span style="color:#f0c040">📞 064-757-3393</span><br>06:00~22:00 · 무휴 · 포장 OK</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#7b5ea7;font-weight:700;letter-spacing:1px;margin-bottom:6px">DAY 4 · 귀가</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🦑 센잇 화석과자</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 이도동 (공항 10분)<br><span style="color:#f0c040">10:00~18:00</span><br>기념품·포장·비행기 OK</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#e8603a;font-weight:700;letter-spacing:1px;margin-bottom:6px">숙소</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🏠 달가든하우스</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">서귀포시 서호호근로46번길 20<br>체크인 15:00 / 체크아웃 11:00<br>🏊 풀장 있음</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px">
+      <div style="font-size:11px;color:#e8603a;font-weight:700;letter-spacing:1px;margin-bottom:6px">렌터카</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:4px">🚗 에스렌트카</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7">제주시 용담이동 (공항 인근)<br>픽업 5/21 16:00<br><span style="color:#f87171">⚠️ 반납 5/24 15:00</span></div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ CHECKLIST ═══════════════════════ -->
+<div id="checklist" class="bg-green-light">
+<div class="section">
+  <h2 class="section-title">✅ 여행 전 체크리스트</h2>
+  <p class="section-sub">출발 전 반드시 확인! 특히 ⚠️ 표시 항목.</p>
+
+  <h3 style="font-size:14px;font-weight:700;color:var(--coral);margin-bottom:12px">⚠️ 예약 필수</h3>
+  <div class="checklist-grid" style="margin-bottom:24px">
+    <div class="check-item"><div class="check-box" style="border-color:var(--coral)"></div>김녕요트 돌고래 일반투어 사전예약 (주말 마감 빠름!)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--coral)"></div>에코랜드 — 주말 오픈런 (8:30)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--coral)"></div>밭디 제주 승마 사전예약 + 또용 탑승연령 전화확인</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--coral)"></div>이춘옥 고등어쌈밥 네이버 예약</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--coral)"></div>대한목장 홀스테라피 예약 (인스타 확인)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--coral)"></div>렌터카 예약 (카시트 포함 2개)</div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:var(--ocean);margin-bottom:12px">📋 확인 사항</h3>
+  <div class="checklist-grid" style="margin-bottom:24px">
+    <div class="check-item"><div class="check-box"></div>돌문화공원 월요일 휴무 — 5/23(토) OK 확인</div>
+    <div class="check-item"><div class="check-box"></div>넥슨뮤지엄 2026.05 리뉴얼 휴관 — 패스</div>
+    <div class="check-item"><div class="check-box"></div>다니쉬 베이커리 화·수 휴무 — 5/24(일) OK</div>
+    <div class="check-item"><div class="check-box"></div>올래국수 일요일 휴무 — 5/24(일)이라 OK 아님! → 5/22(금)로 변경 고려</div>
+    <div class="check-item"><div class="check-box"></div>인카페온더비치 수영복·모래놀이 용품 챙기기</div>
+    <div class="check-item"><div class="check-box"></div>돌문화공원 키카 양말 필수 챙기기</div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:var(--green);margin-bottom:12px">🎒 짐 체크</h3>
+  <div class="checklist-grid">
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>선크림 (5월 제주 자외선 강함)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>모자 2개 (꿀달·또용)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>수영복 + 래시가드</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>여벌 옷 (모래놀이용)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>양말 여러 켤레 (키카 필수)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>우비 or 우산 (갑작스런 비)</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>물티슈 넉넉히</div>
+    <div class="check-item"><div class="check-box" style="border-color:var(--green)"></div>이동식 세제 (옷 세탁)</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<div class="footer">
+  <strong>꿀달 + 또용</strong>이랑 제주 여행 🌴<br>
+  <span style="margin-top:6px;display:block">2026.05.21 – 05.24 · 달가든하우스 · 3박 4일</span>
+  <span style="margin-top:6px;display:block;font-size:11px;opacity:0.75">Claude로 만든 여행 가이드 · 현지 상황에 따라 일정 조정 필요</span>
+</div>
+
+<!-- 맨 위로 -->
+<button class="scroll-top" aria-label="맨 위로" id="scrollTopBtn">↑</button>
+
+<script>
+// 스크롤 시 네비게이션 활성화 + 맨 위로 버튼 토글 (rAF throttled)
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.nav-tab');
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+let ticking = false;
+
+function onScroll() {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 80;
+    if (window.scrollY >= top) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+
+  if (scrollTopBtn) {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+  }
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(onScroll);
+    ticking = true;
+  }
+}, { passive: true });
+
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// 타임라인 아이템 순차 애니메이션
+const items = document.querySelectorAll('.timeline-item');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationDelay = (i * 0.05) + 's';
+      entry.target.style.opacity = '1';
+    }
+  });
+}, { threshold: 0.1 });
+
+items.forEach(item => observer.observe(item));
+</script>
+</body>
+</html>
