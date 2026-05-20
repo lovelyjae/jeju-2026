@@ -386,18 +386,10 @@ img, svg { display: block; max-width: 100%; }
 
 .timeline {
   position: relative;
-  padding-left: 36px;
+  padding-left: 0; /* ▼ 들쭉날쭉 잡기: 일정 카드도 다른 그리드와 좌측 정렬 통일 */
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 14px;
-  top: 6px; bottom: 6px;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--ocean) 0%, var(--ocean-light) 60%, rgba(79,168,199,0) 100%);
-  border-radius: 2px;
-}
+.timeline::before { display: none; }
 
 .timeline-item {
   position: relative;
@@ -405,28 +397,7 @@ img, svg { display: block; max-width: 100%; }
   animation: slideIn 0.5s var(--ease) both;
 }
 
-.timeline-dot {
-  position: absolute;
-  left: -28px;
-  top: 18px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--ocean-light);
-  border: 3px solid var(--ocean);
-  flex-shrink: 0;
-  box-shadow: 0 0 0 4px rgba(26,107,138,0.08);
-  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
-}
-
-.timeline-item:hover .timeline-dot {
-  transform: scale(1.15);
-  box-shadow: 0 0 0 6px rgba(26,107,138,0.12);
-}
-
-.timeline-dot.confirmed {
-  background: var(--ocean);
-}
+.timeline-dot { display: none; }
 
 .place-card {
   background: var(--white);
@@ -859,8 +830,7 @@ img, svg { display: block; max-width: 100%; }
 
   .nav-tab { padding: 12px 12px; font-size: 12px; }
 
-  .timeline { padding-left: 28px; }
-  .timeline-dot { left: -24px; width: 10px; height: 10px; border-width: 2px; }
+  .timeline { padding-left: 0; }
 
   .day-header { gap: 10px; margin-top: 28px; }
   .day-info h3 { font-size: 16px; }
